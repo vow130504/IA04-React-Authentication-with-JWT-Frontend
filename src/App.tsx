@@ -6,6 +6,7 @@ import {
   Route,
   Link,
   Navigate,
+  HashRouter,
 } from 'react-router-dom';
 
 import HomePage from '@/components/pages/HomePage';
@@ -91,9 +92,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 // Chúng ta chỉ cần bọc AuthProvider ở đây.
 export default function App() {
   return (
-      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+      <HashRouter>
         <AuthProvider>
-          {' '}
           {/* Bọc AuthProvider */}
           <Layout>
           <Routes>
@@ -114,6 +114,6 @@ export default function App() {
           </Routes>
         </Layout>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
