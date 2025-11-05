@@ -91,11 +91,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 // Chúng ta chỉ cần bọc AuthProvider ở đây.
 export default function App() {
   return (
-    <BrowserRouter basename="/IA03-User-Registration-API-with-React-Frontend-frontend">
-      <AuthProvider>
-        {' '}
-        {/* Bọc AuthProvider */}
-        <Layout>
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+        <AuthProvider>
+          {' '}
+          {/* Bọc AuthProvider */}
+          <Layout>
           <Routes>
             {/* Route công khai */}
             <Route path="/login" element={<LoginPage />} />
